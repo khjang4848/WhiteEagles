@@ -1,0 +1,84 @@
+<section class="inner_wrap">
+    <div class="main">
+        <div class="inner2">
+            <div id="naviArea">
+                <h1 class="title">한도조정 및 등록</h1>
+                <span id="menuNavi">home > 한도조정 및 등록</span>
+                <p style="clear: both;"></p>
+            </div>
+            <form class="mainForm">
+                <table cass="search-tb">
+                    <colgroup>
+                        <col width="120">
+                        <col width="">
+                        <col width="120">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            MID
+                        </th>
+                        <td colspan="3">
+                            <input type="text" name="mid" maxlength="50" style="width:150px" [(ngModel)]="mid">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <div class="btn-area-search">
+                <button type="button" (click)="searchData()"><span>조 회</span></button>
+                <button type="button" class="excelBtn" (click)="searchExcel()"><span>EXCEL</span></button>
+            </div>
+        </div>
+        <ngx-datatable class="bootstrap"  [rows]="limitlists" [columnMode]="'force'"[headerHeight]="40"
+                       [rowHeight]="35"
+                       [reorderable]="true">
+            <ngx-datatable-column name="가맹점상호">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.MerchantName}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="사업자번호">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.MerchantNo}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name='가맹점코드'>
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.MerchantId}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="전화번호">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.TelNo}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="전월매출총액">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.PreSalesAmount | currency:'KRW':'symbol'}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="입금한도">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.TransferLimit | currency:'KRW':'symbol'}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="잔여한도">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <span>{{value.AvailableLimit | currency:'KRW':'symbol'}}</span>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="변경" [cellClass]="'my-custom-cell-row'">
+                <ng-template  let-value="value" ngx-datatable-cell-template>
+                    <button type="button"  class="excelBtn"  (click)="goModifyLimit(value.MerchantId)"><span>한도변경</span></button>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="개별등록" [cellClass]="'my-custom-cell-row'">
+                <ng-template  let-value="value" ngx-datatable-cell-template>
+                    <button type="button"  (click)="goRegister(value.MerchantId)"><span>개별등록</span></button>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</section>

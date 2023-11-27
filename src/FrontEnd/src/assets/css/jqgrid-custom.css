@@ -1,0 +1,123 @@
+.ui-jqgrid {
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+}
+
+.ui-jqgrid * {
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+}
+
+.ui-jqgrid input[type=text] { width: 100%!important; }
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {}
+/* .ui-jqgrid { border: 0px none; } */
+/* .ui-jqgrid-view { border: 1px solid #d3d3d3!important; } */
+.ui-jqgrid table { /* border-collapse: separate; */ }
+.ui-jqgrid tr.jqgrow td { height: 25px; }
+
+/* header 영역 */
+.ui-jqgrid .ui-jqgrid-hdiv { /* border-top: 1px solid #d3d3d3!important; */ /* border-left: 1px solid #d3d3d3!important; */ }
+.ui-jqgrid .ui-jqgrid-htable th div { height: auto; min-height: 17px; line-height: 17px;}
+.ui-widget-content a { color: #2828CD; }
+.ui-jqgrid-htable th.ui-th-ltr { }
+
+/* body */
+/* .ui-jqgrid-btable { border-left: 1px solid #d3d3d3!important; } */
+
+/* pager 영역 */
+.ui-jqgrid-toppager { /* height: 25px; */padding-bottom: 0px!important; margin-top: 40px!important; background: #fff;border:none; border-top: 2px solid #eee; }
+.ui-jqgrid-toppager .current { font-weight: bold; }
+.ui-pg-table td { width: auto!important; }
+.ui-pg-table td[id$="_left"] { width: 1px!important; }
+.ui-pg-table td[id$="_right"] { width: 1px!important; }
+.myPager a { padding: 10px; }
+
+.group-header1,.group-header2 { height: 22px; }
+
+/******************************************* START JQGRID INNER TABLE */
+.jqgrid-inner-tb { width: 100%; }
+.ui-jqgrid-htable .jqgrid-inner-tb th {border-top: 1px solid #e9ebea; font-weight: normal!important; }
+.ui-jqgrid-htable .jqgrid-inner-tb th:first-child { border-left: 0 none; }
+.ui-jqgrid-htable .jqgrid-inner-tb tr:first-child th { border-top: 0 none; }
+
+.ui-jqgrid tr.ui-row-ltr td .jqgrid-inner-tb td { border-left: 1px solid #eee; border-top: 1px solid #eee; border-right: 0 none; border-bottom: 0 none; }
+.ui-jqgrid tr.ui-row-ltr td .jqgrid-inner-tb td:first-child { border-left: 0 none; }
+.ui-jqgrid tr.ui-row-ltr td .jqgrid-inner-tb tr:first-child td { border-top: 0 none; }
+
+/******************************************* END JQGRID INNER TABLE */
+
+
+/*
+	.Final Editor : Y.R Lee
+	.Description : 테이블 스타일 수정
+	.Last Edit : 2017-03-13
+*/
+
+#body table.search-tb > tbody > tr > th,
+#body table.search-tb > tr > th {background-color: #f9f9f9;}
+#body table.search-tb > tbody > tr > th,
+#body table.search-tb > tr > th,
+#body table.search-tb > tbody > tr > td,
+#body table.search-tb > tr > td {border-color: #eee; border-left: 0; border-right: 0; padding: 8px 10px; color: #4a4a4a;}
+#body table.search-tb select,
+#body table.search-tb input {width: 100px; border-radius: 2px; padding: 3px; border-color: #e0e0e0; color: #4a4a4a;}
+#body table.search-tb input[type="checkbox"] {width: 12px;}
+#body .btn-area-search {width: 100%; margin: 12px 0; text-align: center;}
+#body .btn-area-search > button {height: 25px; line-height: 25px; background: #fff; border-color: #e0e0e0; color: #4a4a4a; border-radius: 2px;}
+#body .btn-area-search > button.defaultBtn {background: #fff; border-color: #e0e0e0; color: #4a4a4a;}
+#body .btn-area-search > button.excelBtn {background: #44a654; border-color: transparent; color: #fff;}
+#body .btn-area-search > button.blueBtn {background: #0078b3; border-color: transparent; color: #fff;}
+
+#gridContainer .form-tb#cntTb {width: 100%;}
+#gridContainer table.form-tb > tbody > tr > th,
+#gridContainer table.form-tb > tr > th {height: 35px; text-align: center; border-left: 1px solid #eee;}
+#gridContainer table.form-tb > tr > th:first-child {border-left:none;}
+#gridContainer table.form-tb > tbody > tr > td,
+#gridContainer table.form-tb > tr > td {height: 35px; text-align: right; border-left: 1px solid #eee; padding:0 4px;}
+#gridContainer table.form-tb > tbody > tr > td:last-child {border-right: 0;}
+/*#gridContainer .ui-jqgrid-toppager {width: 100% !important;}*/
+#gridContainer table.form-tb > tbody > tr > th:nth-child(1) {background-color: #faffe7; color: #90a644;}
+#gridContainer table.form-tb > tbody > tr > th:nth-child(4) {background-color: #fff3e5; color: #ff8d00;}
+#gridContainer table.form-tb > tbody > tr > th:nth-child(7) {background-color: #eaf8ff; color: #0185c6;}
+
+/* 테이블 */
+#gridContainer .ui-widget-content,
+#gridContainer .ui-widget-header,
+#gridContainer .ui-jqgrid .ui-jqgrid-hdiv,
+#gridContainer .ui-jqgrid-htable .ui-state-default,
+#gridContainer .no-data {background-image: none; border: 0;}
+#gridContainer .ui-jqgrid-htable tr:nth-child(2) .ui-state-default.ui-th-column.ui-th-ltr{border-right:1px solid #e8e8e8!important;}
+#gridContainer .ui-jqgrid-htable tr:nth-child(3) .ui-state-default.ui-th-column.ui-th-ltr{border-right:1px solid #e8e8e8!important;}
+#gridContainer .ui-jqgrid-htable tr:nth-child(2) .ui-state-default.ui-th-column-header{border-right:1px solid #e8e8e8!important;border-bottom:1px solid #e4e4e4!important;}
+
+.ui-jqgrid .ui-icon-asc {margin-left: 1px;}
+.ui-jqgrid .ui-jqgrid-htable {border-top: 1px solid #709ce6; border-bottom: 1px solid #eee;}
+.ui-state-default, .ui-widget-content .ui-state-default {background: #fff;}
+.no-data {height: 36px; line-height: 36px; border-bottom: 1px solid #eee !important;text-align:center;}
+.ui-jqgrid tr.jqgrow td {border-color: #eee;}
+.ui-jqgrid tr.ui-row-ltr td,
+.ui-jqgrid tr.footrow td {border-right: 0;}
+.ui-jqgrid tr.footrow td {box-sizing: border-box;height: 30px; line-height: 30px; background: #e9f0fd; color: #043ba2; text-align: right; border-top: 0; border-bottom: 1px solid #eee;padding: 0 8px;}
+.ui-jqgrid tr.jqgrow td {height: 36px; line-height: 36px; padding: 0 8px;}
+.ui-jqgrid tr.jqgrow td a {color: #ff8d00;}
+.ui-jqgrid tr.jqgrow td a:hover {text-decoration: underline;}
+.ui-jqgrid .ui-jqgrid-htable thead th {background: #f9f9f9; border-right: 0 !important;}
+.ui-jqgrid .ui-jqgrid-htable thead th:hover {background: #f9f9f9 !important;}
+.ui-jqgrid .ui-jqgrid-htable thead th:last-child {border-right: 0 !important;}
+.ui-jqgrid .ui-jqgrid-htable thead tr:last-child th:nth-child(1),
+.ui-jqgrid .ui-jqgrid-htable thead tr:last-child th:nth-child(2),
+.ui-jqgrid .ui-jqgrid-htable thead tr:last-child th:nth-child(3),
+.ui-jqgrid .ui-jqgrid-htable thead tr:last-child th:nth-child(4) {border-top: 1px solid #eee;}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight,
+.ui-state-hover,.ui-widget-content .ui-state-hover {background: #e9f0fd !important;border:none;}
+
+#content div#body > #naviArea > #menuNavi {font-size: 11px;}
+
+
+.ui-widget-content {border: 0 !important;}
+.ui-widget-content.ui-datepicker {border: 1px solid #ddd !important;padding:10px;box-shadow: 2px 2px 2px #ccc;}

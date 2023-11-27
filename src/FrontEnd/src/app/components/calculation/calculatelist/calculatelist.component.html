@@ -1,0 +1,149 @@
+<section class="inner_wrap">
+    <div class="main">
+        <div class="inner">
+            <div id="naviArea">
+                <h1 class="title">정산 및 마감</h1>
+                <span id="menuNavi">home > 정산 및 마감</span>
+                <p style="clear: both;"></p>
+            </div>
+            <form class="mainForm">
+                <table cass="search-tb">
+                    <colgroup>
+                        <col width="120">
+                        <col width="">
+                        <col width="120">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                        <th>
+                            MID
+                        </th>
+                        <td colspan="3">
+                            <input type="text" name="mid" maxlength="50" style="width:150px" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>거래일</th>
+                        <td style="height: 75px" colspan="3">
+                            <mat-form-field appearance="outline" [style.width.px]="120" class="my-form-field">
+                                <mat-label>거래시작년월</mat-label>
+                                <input matInput [matDatepicker]="dp" [formControl]="startDate" >
+                                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                                <mat-datepicker #dp
+                                                startView="multi-year"
+                                                (yearSelected)="chosenStartYearHandler($event)"
+                                                (monthSelected)="chosenStartMonthHandler($event, dp)"
+                                                panelClass="example-month-picker">
+                            </mat-datepicker>
+                            </mat-form-field>
+                            <span style="margin: 5px;padding-bottom: 15px">
+                                ~
+                            </span>
+                            <mat-form-field appearance="outline" [style.width.px]="120" class="my-form-field">
+                                <mat-label>거래종료년월</mat-label>
+                                <input matInput [matDatepicker]="dp1" [formControl]="endDate" >
+                                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                                <mat-datepicker #dp1
+                                                startView="multi-year"
+                                                (yearSelected)="chosenEndYearHandler($event)"
+                                                (monthSelected)="chosenEndMonthHandler($event, dp1)"
+                                                panelClass="example-month-picker">
+                                </mat-datepicker>
+                            </mat-form-field>
+                            <img src="./assets/images/search_input_bt01.gif"  (click)="onchangeMonth(0)"   class="btn-img" style="margin: 3px;padding-bottom: 15px">
+                            <img src="./assets/images/search_input_bt06.gif"  (click)="onchangeMonth(-1)"  class="btn-img" style="margin: 3px;padding-bottom: 15px">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <div class="btn-area-search">
+                <button type="button" (click)="search()"><span>조 회</span></button>
+                <button type="button" (click)="excel()" class="excelBtn"><span>EXCEL</span></button>
+            </div>
+            <ngx-datatable style="width:1200px"
+                [headerHeight]="50"
+                [footerHeight]="'auto'"
+                [columnMode]="'force'"
+                [rows]="calculateList"
+                [rowHeight]="undefined"
+                [limit]="10"
+            >
+                <ngx-datatable-column [width]="600">
+                    <ng-template let-row="row" ngx-datatable-header-template>
+                        <strong>기본정보</strong>
+                        <ngx-datatable [rows]="calculateList" [columnMode]="'force'" [headerHeight]="'auto'" [selectAllRowsOnPage]="false">
+                            <ngx-datatable-column [name]="'선택'">
+                            </ngx-datatable-column>
+                            <ngx-datatable-column [name]="'가맹점상호'">
+                            </ngx-datatable-column>
+                            <ngx-datatable-column [name]="'사업자번호'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'MID'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'전화번호'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'출금건수'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'출금총액'"></ngx-datatable-column>
+                        </ngx-datatable>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template let-rowIndex="rowIndex">
+                        <div style="width: 100%;background-color:#eeeeee;display: table;text-align:center ">
+                            <span style='display: table-cell;width:40px;height:25px;font-size:13px;text-align:center;'>
+                                <input type="checkbox" value="{{rowIndex}}" (change)="onCheckChange($event)" [(ngModel)]="selected[rowIndex]"  />
+                            </span>
+                            <span style="display: table-cell;width:86px;height:25px;font-size:13px;">{{row.MerchantName}}</span>
+                            <span style="display: table-cell;width:86px;height:25px;font-size:13px;">{{row.MerchantNo}}</span>
+                            <span style="display: table-cell;width:86px;">{{row.MerchantId}}</span>
+                            <span style="display: table-cell;width:86px;">{{row.TelNo}}</span>
+                            <span style="display: table-cell;width:86px;">{{row.WithdrawalCount}}</span>
+                            <span style="display: table-cell;width:86px;">{{row.WithdrawalAmount | currency:'KRW':'symbol'}}</span>
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [width]="450">
+                    <ng-template let-row="row" ngx-datatable-header-template>
+                        <strong>수수료정보</strong>
+                        <ngx-datatable [rows]="[calculateList]" [columnMode]="'force'" [headerHeight]="'auto'" [rowHeight]="undefined" [footerHeight]="undefined">
+                            <ngx-datatable-column [name]="'단위'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'최소'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'최소기준'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'건당'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'기본'"></ngx-datatable-column>
+                            <ngx-datatable-column [name]="'청구'"></ngx-datatable-column>
+                        </ngx-datatable>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div style="width: 100%;background-color:#eeeeee;display: table;text-align:center ">
+                            <span style="display: table-cell;width:16%;height:25px;font-size:13px;" *ngIf="row.FeeType === '1'">
+                                원
+                            </span>
+                            <span style="display: table-cell;width:16%;height:25px;font-size:13px;" *ngIf="row.FeeType === '2'">
+                                %
+                            </span>
+                            <span style="display: table-cell;width:16%;height:25px;font-size:13px;">{{row.MinFee}}</span>
+                            <span style="display: table-cell;width:16%;font-size:13px;">{{row.MinLimit}}</span>
+                            <span style="display: table-cell;width:16%;font-size:13px;">{{row.FeeByCase | currency:'KRW':'symbol'}}</span>
+                            <span style="display: table-cell;width:16%;font-size:13px;">{{row.MonthBaseFee | currency:'KRW':'symbol'}}</span>
+                            <span style="display: table-cell;width:16%;font-size:13px;">{{row.BillingAmount | currency:'KRW':'symbol'}}</span>
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column [width]="150">
+                    <ng-template let-row="row" ngx-datatable-header-template>
+                        <strong>총계정보</strong>
+                    <ngx-datatable [rows]="[calculateList]" [columnMode]="'force'" [headerHeight]="'auto'">
+                        <ngx-datatable-column [name]="'부가세'"></ngx-datatable-column>
+                        <ngx-datatable-column [name]="'총계'"></ngx-datatable-column>
+                    </ngx-datatable>
+                    </ng-template>
+                    <ng-template let-row="row" ngx-datatable-cell-template>
+                        <div style="width: 100%;background-color:#eeeeee;display: table;text-align:center ">
+                            <span style="display: table-cell;width:40%;height:25px;font-size:13px;">{{42000 | currency:'KRW':'symbol'}} </span>
+                            <span style="display: table-cell;width:60%;font-size:13px;">{{42000 | currency:'KRW':'symbol'}}</span>
+                        </div>
+                    </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+        </div>
+    </div>
+</section>
+

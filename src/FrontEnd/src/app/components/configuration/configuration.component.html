@@ -1,0 +1,88 @@
+<section class="inner_wrap">
+    <div class="main">
+        <div class="inner">
+            <div id="naviArea">
+                <h1 class="title">환경설정</h1>
+                <span id="menuNavi">home > 환경설정</span>
+                <p style="clear: both;"></p>
+            </div>
+            <form class="mainForm">
+                <table class="form-tb">
+                    <colgroup>
+                        <col width="">
+                        <col width="">
+                        <col width="">
+                        <col width="">
+                        <col width="">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                    <tr class="small_form" style="height:60px">
+                        <th style="border-color: rgb(221, 221, 221);">하위판매점 지급대행서비스</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <select name="ServiceUse" [(ngModel)]="merchantInfo.ServiceUse">
+                                <option value="Y">사용함</option>
+                                <option value="N">사용하지않음</option>
+                            </select>
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">서비스개시일</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <mat-form-field appearance="outline" [style.width.px]="120" class="my-form-field">
+                                <input name="ServiceStartDate" matInput [matDatepicker]="startDate" [formControl]="start" >
+                                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                                <mat-datepicker #startDate></mat-datepicker>
+                            </mat-form-field>
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">선수금</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                                <input name="SuspenseReceipts" currencyMask  type="tel"
+                                       style="text-align:right"   [(ngModel)]="merchantInfo.SuspenseReceipts" >원
+                        </td>
+
+                    </tr>
+                    <tr class="small_form" style="height:60px">
+                        <th style="border-color: rgb(221, 221, 221);">수수료 적용 단위</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <select name="FeeType" [(ngModel)]="merchantInfo.FeeType">
+                                <option value="1">원</option>
+                                <option value="2">%</option>
+                            </select>
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">최소수수료</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MinFee" type="tel" currencyMask
+                                   style="text-align:right" [(ngModel)]="merchantInfo.MinFee" maxlength="10">원
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">최소기준</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MinLimit"  type="tel" currencyMask
+                                   [(ngModel)]="merchantInfo.MinLimit" maxlength="15">원
+                        </td>
+
+                    </tr>
+                    <tr class="small_form" style="height:60px">
+                        <th style="border-color: rgb(221, 221, 221);">건당 이용 수수료</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="FeeByCase" type="number"  style="text-align:right"
+                                   [(ngModel)]="merchantInfo.FeeByCase" maxlength="10">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">월 기본수수료</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MonthBaseFee" type="tel" currencyMask
+                                   [(ngModel)]="merchantInfo.MonthBaseFee"  maxlength="10">원
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">정산일(매월)</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="CalculateDay" id="BuyerName" type="number" style="text-align:right"
+                                   [(ngModel)]="merchantInfo.CalculateDay" maxlength="2">일
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <div class="btn-area-search">
+                <button type="button" class="blueBtn" (click)="save()" ><span>저장</span></button>
+            </div>
+        </div>
+    </div>
+</section>

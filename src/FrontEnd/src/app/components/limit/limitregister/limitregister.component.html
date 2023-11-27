@@ -1,0 +1,92 @@
+<section class="inner_wrap">
+    <div class="main">
+        <div class="inner">
+            <div id="naviArea">
+                <h1 class="title">한도조정 및 등록</h1>
+                <span id="menuNavi">home > 한도조정 및 등록 > 등록</span>
+                <p style="clear: both;"></p>
+            </div>
+            <form class="mainForm">
+                <table class="form-tb">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                    </colgroup>
+                    <tbody>
+                    <tr class="small_form" style="height:60px">
+                        <th style="border-color: rgb(221, 221, 221);">가맹점상호</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MerchantName" type="text" value="" maxlength="10" readonly [ngModel]="limitlist.MerchantName">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">사업자번호</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MerchantNo" type="text" maxlength="10"  readonly [ngModel]="limitlist.MerchantNo">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">MID</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MerchantId" type="text" value="" maxlength="10" readonly [ngModel]="limitlist.MerchantId" >
+                        </td>
+                        <td colspan="2">
+                        </td>
+                    </tr>
+                    <tr class="small_form" style="height:60px">
+                        <th style="border-color: rgb(221, 221, 221);">가수금</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="SuspenseReceipts" type="tel" currencyMask readonly maxlength="10" [ngModel]="limitlist.SuspenseReceipts" >
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">전월PG매출총액</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="PreviousBalanceAmount" type="tel" currencyMask readonly maxlength="10" [ngModel]="limitlist.TotalSalesAmount">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">금월출금총액</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="WithdrawalTotalAmount" type="tel" currencyMask maxlength="10" readonly [ngModel]="limitlist.WithdrawalTotalAmount">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">이월잔액</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="PreviousBalanceAmount"  type="tel" currencyMask readonly maxlength="10" [ngModel]="limitlist.PreviousBalanceAmount">
+                        </td>
+                    </tr>
+                    <tr class="small_form" style="height:60px">
+                        <td colspan="2">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">기준한도</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="SuspenseReceipts" type="tel"  currencyMask readonly maxlength="10" [ngModel]="limitlist.TotalSalesAmount + limitlist.SuspenseReceipts ">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">잔여한도</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="LimitAvaible" type="tel" currencyMask readonly maxlength="10" [ngModel]="getAvailableLimit()">
+                        </td>
+                        <td colspan="2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height:3px;padding-top:0px;padding-bottom:0px;border:0px;background-color: #0d47b4" colspan="8"></td>
+                    </tr>
+                    <tr class="small_form" style="height:60px">
+                        <td colspan="2">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">금회입금액</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="RegisterAmount" type="tel" currencyMask value="" maxlength="10" [(ngModel)]="limitRegister.RegisterAmount">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">거래한도</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="BuyerName" type="tel" currencyMask readonly maxlength="10 " [ngModel]="getAvailableLimit()">
+                        </td>
+                        <td colspan="2">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+            <div class="btn-area-search">
+                <button type="button" class="blueBtn" (click)="save()"><span>저장</span></button>
+                <button type="button" (click)="goList()"><span>목록</span></button>
+            </div>
+        </div>
+    </div>
+</section>

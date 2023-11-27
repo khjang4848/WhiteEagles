@@ -1,0 +1,203 @@
+<section class="inner_wrap">
+    <div class="main">
+        <div class="inner">
+            <div id="naviArea">
+                <h1 class="title">거래내역조회</h1>
+                <span id="menuNavi">home > 거래내역조회</span>
+                <p style="clear: both;"></p>
+            </div>
+            <form class="mainForm">
+                <table class="search-tb">
+                    <colgroup>
+                        <col width="120">
+                        <col width="">
+                        <col width="120">
+                        <col width="">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>
+                                MID
+                            </th>
+                            <td>
+                                <input type="text" name="mid" maxlength="50" style="width:150px" [(ngModel)]="walletRequest.Mid">
+                            </td>
+                            <th>거래상태</th>
+                            <td>
+                                <select name="TransferStatus" [(ngModel)]="walletRequest.TransferStatus">
+                                    <option value="">선택하세요</option>
+                                    <option value="Y">승인</option>
+                                    <option value="N">거절</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>거래일</th>
+                            <td style="height: 75px" colspan="3">
+                                <mat-form-field appearance="outline" [style.width.px]="150" class="my-form-field">
+                                    <mat-label>거래시작일</mat-label>
+                                    <input name="startDate" matInput [matDatepicker]="startDate"   [formControl]="start"  >
+                                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                                    <mat-datepicker #startDate></mat-datepicker>
+                                </mat-form-field>
+                                <span style="margin: 5px;padding-bottom: 15px">
+                                ~
+                               </span>
+                                <mat-form-field appearance="outline" [style.width.px]="120" class="my-form-field">
+                                    <mat-label>거래종료일</mat-label>
+                                    <input name="endDate" matInput [matDatepicker]="endDate"  [formControl]="end">
+                                    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                                    <mat-datepicker #endDate></mat-datepicker>
+                                </mat-form-field>
+                                <img src="./assets/images/search_input_bt01.gif"  (click)="changeDay(0)" class="btn-img" style="margin: 3px;padding-bottom: 15px">
+                                <img src="./assets/images/search_input_bt06.gif" (click)="changeDay(-1)" class="btn-img" style="margin: 3px;padding-bottom: 15px">
+                                <img src="./assets/images/search_input_bt02.gif" (click)="changeDay(-7)" class="btn-img" style="margin: 3px;padding-bottom: 15px">
+                                <img src="./assets/images/search_input_bt03.gif" (click)="changeDay(-30)" class="btn-img" style="margin: 3px;padding-bottom: 15px">
+                                <img src="./assets/images/search_input_bt04.gif" (click)="changeDay(-60)" class="btn-img" style="margin: 3px;padding-bottom: 15px">
+                                <img src="./assets/images/search_input_bt05.gif" (click)="changeDay(-90)" class="btn-img" style="margin: 3px;padding-bottom: 15px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                예금주명
+                            </th>
+                            <td>
+                                <input type="text" name="ordNm" maxlength="50" [(ngModel)]="walletRequest.RemiName" >
+                            </td>
+                            <th>
+                                입금계좌번호
+                            </th>
+                            <td>
+                                <input type="text" name="ordNm" maxlength="50" [(ngModel)]="walletRequest.InAccountNo">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                은행명
+                            </th>
+                            <td colspan="3">
+                                <select name="Bank" [(ngModel)]="walletRequest.BankCode">
+                                    <option value="">선택하세요</option>
+                                    <option value="039">경남은행</option>
+                                    <option value="034">광주은행</option>
+                                    <option value="261">교보증권</option>
+                                    <option value="004">국민은행</option>
+                                    <option value="003">기업은행</option>
+                                    <option value="011">농협은행</option>
+                                    <option value="031">대구은행</option>
+                                    <option value="267">대신증권</option>
+                                    <option value="238">대우증권</option>
+                                    <option value="055">도이치은행</option>
+                                    <option value="279">동부증권</option>
+                                    <option value="209">동양증권</option>
+                                    <option value="287">메리츠증권</option>
+                                    <option value="230">미래에셋증권</option>
+                                    <option value="294">부국증권</option>
+                                    <option value="032">부산은행</option>
+                                    <option value="292">산림조합</option>
+                                    <option value="292">산림조합</option>
+                                    <option value="002">산업은행</option>
+                                    <option value="240">삼성증권</option>
+                                    <option value="050">상호저축은행</option>
+                                    <option value="045">새마을금고</option>
+                                    <option value="295">솔로몬투자</option>
+                                    <option value="007">수협</option>
+                                    <option value="291">신영증권</option>
+                                    <option value="278">신한금융투자</option>
+                                    <option value="088">신한은행</option>
+                                    <option value="048">신협</option>
+                                    <option value="027">씨티은행</option>
+                                    <option value="005">외환은행</option>
+                                    <option value="020">우리은행</option>
+                                    <option value="247">우리투자증권</option>
+                                    <option value="071">우체국</option>
+                                    <option value="280">유진투자증권</option>
+                                    <option value="296">이트레이드증권</option>
+                                    <option value="037">전북은행</option>
+                                    <option value="035">제주은행</option>
+                                    <option value="062">중국공상은행</option>
+                                    <option value="012">지역농협</option>
+                                    <option value="090">카카오뱅크</option>
+                                    <option value="297">키움증권</option>
+                                    <option value="270">하나대투증권</option>
+                                    <option value="081">하나은행</option>
+                                    <option value="262">하이투자증권</option>
+                                    <option value="243">한국투자증권</option>
+                                    <option value="269">한화증권</option>
+                                    <option value="218">현대증권</option>
+                                    <option value="293">BNP파리바은행</option>
+                                    <option value="060">BOA</option>
+                                    <option value="263">HMC투자증권</option>
+                                    <option value="054">HSBC</option>
+                                    <option value="052">JP모건</option>
+                                    <option value="298">LIG투자증권</option>
+                                    <option value="289">NH농협증권</option>
+                                    <option value="023">SC제일은행</option>
+                                    <option value="266">SK증권</option>
+                                </select>
+                            </td>
+                        </tr>
+                </table>
+            </form>
+            <div class="btn-area-search">
+                <button type="button" (click)="searchData()"><span>조 회</span></button>
+                <button type="button" class="excelBtn" (click)="searchExcel()"><span>EXCEL</span></button>
+            </div>
+                <ngx-datatable class="bootstrap"  [rows]="walletHistory" [columnMode]="'force'" [headerHeight]="35"
+                               [rowHeight]="35"
+                               [footerHeight]="50"
+                               [reorderable]="true">
+                    <ngx-datatable-column name="가맹점상호">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.MerchantName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="MID">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.MerchantId}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="은행명">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.BankName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="예금주명">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.AccountName}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="계좌번호">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.AccountNo}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="입금일시">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.SendDateTime}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="입금액">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.Amount | currency:'KRW':'symbol'}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="응답메시지">
+                        <ng-template let-value="value" ngx-datatable-cell-template>
+                            {{value.ResultMessage}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-footer>
+                        <ng-template ngx-datatable-footer-template>
+                            <mat-paginator [length]=rowCount
+                                           [pageSize]=20
+                                           (page)="onPageChanged($event)">
+                            </mat-paginator>
+
+                        </ng-template>
+                    </ngx-datatable-footer>
+                </ngx-datatable>
+
+        </div>
+    </div>
+</section>

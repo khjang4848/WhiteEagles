@@ -1,0 +1,193 @@
+<section class="inner_wrap">
+    <div class="main">
+        <div class="inner">
+            <div id="naviArea">
+                <h1 class="title">개별등록</h1>
+                <span id="menuNavi">home > 개별등록 > 등록</span>
+                <p style="clear: both;"></p>
+            </div>
+            <form class="mainForm">
+                <table class="form-tb">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                    </colgroup>
+                    <tbody>
+                    <tr class="small_form" style="height:60px">
+                        <th style="border-color: rgb(221, 221, 221);">가맹점상호</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MerchantName" type="text" maxlength="10" readonly [ngModel]="limit.MerchantName">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">사업자번호</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MerchantNo" type="text" maxlength="10"  readonly  [ngModel]="limit.MerchantNo" >
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">MID</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="MerchantId" type="text"  maxlength="10" readonly  [ngModel]="limit.MerchantId">
+                        </td>
+                        <th style="border-color: rgb(221, 221, 221);">잔여한도</th>
+                        <td style="border-color: rgb(221, 221, 221);">
+                            <input name="AvailableLimit" type="number"  maxlength="10" readonly  [ngModel]="getAvailableLimit()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height:3px;padding-top:0px;padding-bottom:0px;border:0px;background-color: #0d47b4" colspan="8"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div style="width: 100%; height: 300px;">
+                                <h3>*입력정보*</h3>
+                                <table class="form-tb">
+                                    <colgroup>
+                                        <col width="25%">
+                                        <col width="25%">
+                                        <col width="25%">
+                                        <col width="25%">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr class="small_form" style="height:60px">
+                                        <th style="border-color: rgb(221, 221, 221);">은행명</th>
+                                        <td style="border-color: rgb(221, 221, 221);" colspan="3">
+                                            <select name="Bank" [(ngModel)]="withdrawal.BankCode">
+                                                <option value="">선택하세요</option>
+                                                <option value="039">경남은행(00:00~23:50)</option>
+                                                <option value="034">광주은행</option>
+                                                <option value="261">교보증권</option>
+                                                <option value="004">국민은행</option>
+                                                <option value="003">기업은행</option>
+                                                <option value="011">농협은행</option>
+                                                <option value="031">대구은행</option>
+                                                <option value="267">대신증권</option>
+                                                <option value="238">대우증권</option>
+                                                <option value="055">도이치은행</option>
+                                                <option value="279">동부증권</option>
+                                                <option value="209">동양증권</option>
+                                                <option value="287">메리츠증권</option>
+                                                <option value="230">미래에셋증권</option>
+                                                <option value="294">부국증권</option>
+                                                <option value="032">부산은행</option>
+                                                <option value="292">산림조합</option>
+                                                <option value="292">산림조합</option>
+                                                <option value="002">산업은행</option>
+                                                <option value="240">삼성증권</option>
+                                                <option value="050">상호저축은행</option>
+                                                <option value="045">새마을금고</option>
+                                                <option value="295">솔로몬투자</option>
+                                                <option value="007">수협</option>
+                                                <option value="291">신영증권</option>
+                                                <option value="278">신한금융투자</option>
+                                                <option value="088">신한은행</option>
+                                                <option value="048">신협</option>
+                                                <option value="027">씨티은행</option>
+                                                <option value="005">외환은행</option>
+                                                <option value="020">우리은행</option>
+                                                <option value="247">우리투자증권</option>
+                                                <option value="071">우체국</option>
+                                                <option value="280">유진투자증권</option>
+                                                <option value="296">이트레이드증권</option>
+                                                <option value="037">전북은행</option>
+                                                <option value="035">제주은행</option>
+                                                <option value="062">중국공상은행</option>
+                                                <option value="012">지역농협</option>
+                                                <option value="090">카카오뱅크</option>
+                                                <option value="297">키움증권</option>
+                                                <option value="270">하나대투증권</option>
+                                                <option value="081">하나은행</option>
+                                                <option value="262">하이투자증권</option>
+                                                <option value="243">한국투자증권</option>
+                                                <option value="269">한화증권</option>
+                                                <option value="218">현대증권</option>
+                                                <option value="293">BNP파리바은행</option>
+                                                <option value="060">BOA</option>
+                                                <option value="263">HMC투자증권</option>
+                                                <option value="054">HSBC</option>
+                                                <option value="052">JP모건</option>
+                                                <option value="298">LIG투자증권</option>
+                                                <option value="289">NH농협증권</option>
+                                                <option value="023">SC제일은행</option>
+                                                <option value="266">SK증권</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr class="small_form" style="height:60px">
+                                        <th style="border-color: rgb(221, 221, 221);">계좌번호</th>
+                                        <td style="border-color: rgb(221, 221, 221);">
+                                            <input name="AccountNo" type="text" maxlength="20" [(ngModel)]="withdrawal.AccountNo">
+                                        </td>
+                                        <th style="border-color: rgb(221, 221, 221);">입금액</th>
+                                        <td style="border-color: rgb(221, 221, 221);">
+                                            <input name="TransferAmount" type="tel" currencyMask maxlength="20"  [(ngModel)]="withdrawal.TransferAmount" >
+                                        </td>
+                                    </tr>
+                                    <tr class="small_form" style="height:60px">
+                                        <th style="border-color: rgb(221, 221, 221);">입금계좌메모</th>
+                                        <td style="border-color: rgb(221, 221, 221);" colspan="3">
+                                            <input name="AccountName" type="text" maxlength="30" style="width:250px" [(ngModel)]="withdrawal.Name">
+                                        </td>
+                                    </tr>
+                                    <tr class="small_form" style="height:60px">
+                                        <th style="border-color: rgb(221, 221, 221);">출금계좌메모</th>
+                                        <td style="border-color: rgb(221, 221, 221);" colspan="3">
+                                            <input name="AccountOutName" type="text" maxlength="30" style="width:250px" [(ngModel)]="withdrawal.OutName">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td colspan="4">
+                            <div style="width: 100%; height: 300px;">
+                                <h3>*조회정보*</h3>
+                                <table class="form-tb">
+                                    <colgroup>
+                                        <col width="25%">
+                                        <col width="25%">
+                                        <col width="25%">
+                                        <col width="25%">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr class="small_form" style="height:60px">
+                                        <th style="border-color: rgb(221, 221, 221);">예금주명</th>
+                                        <td style="border-color: rgb(221, 221, 221);">
+                                            <input name="accountResponseName" type="text" maxlength="10" readonly [ngModel]="accountResponseName">
+                                        </td>
+                                        <th style="border-color: rgb(221, 221, 221);">은행명</th>
+                                        <td style="border-color: rgb(221, 221, 221);">
+                                            <input name="MerchantNo" type="text" maxlength="10"  readonly  [ngModel]="selectedBankName" >
+                                        </td>
+                                    </tr>
+                                    <tr class="small_form" style="height:60px">
+                                        <th style="border-color: rgb(221, 221, 221);">계좌번호</th>
+                                        <td style="border-color: rgb(221, 221, 221);" colspan="3">
+                                            <input name="AccountNo2" type="text" maxlength="10" style="width:250px" readonly [ngModel]="withdrawal.AccountNo">
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <div class="btn-area-search" style="text-align: center" *ngIf="accountInquiry === false">
+                <button type="button" class="blueBtn" (click)="registerAccountInquiry()"><span>저장</span></button>
+                &nbsp;
+                <button type="button" (click)="goList()"><span>목록</span></button>
+            </div>
+            <div class="btn-area-search" style="text-align: center" *ngIf="accountInquiry === false">
+                <button type="button" class="blueBtn" (click)="registerTransfer()"  ><span>송금</span></button>
+                &nbsp;
+                <button type="button" (click)="onCancel()" ><span>취소</span></button>
+            </div>
+        </div>
+    </div>
+</section>

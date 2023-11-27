@@ -1,0 +1,17 @@
+
+/*  ngxDataTable 관련 CSS */
+.header-background-color {
+    background-color: #eeeeee;
+}
+.header-left-border {
+    border-left: 1px #cccccc solid;
+}
+
+.cell-left-border {
+    text-align: center;
+    border-left: 1px #cccccc solid;
+}
+
+.datatable {
+    text-align: left;
+}

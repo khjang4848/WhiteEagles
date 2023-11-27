@@ -1,0 +1,52 @@
+.example-form-field {
+    margin: 0 8px 16px 0;
+}
+
+.mat-form-field-infix {
+    width: 120px !important;
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+
+:host ::ng-deep .datatable-header-cell {
+    background-color: rgb(249, 249, 249);
+    border-top : 1px solid #709ce6;
+    font-family: "sans-serif";
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    height: 40px;
+    text-align: center;
+    padding: 3px;
+}
+
+:host ::ng-deep .empty-row {
+    text-align: center;
+    font-family: "sans-serif";
+    font-size: 12px;
+    font-style: normal;
+}
+
+.header-background-color {
+    background-color: #eeeeee;
+}
+.header-left-border {
+    border-left: 1px #cccccc solid;
+}
+
+.cell-left-border {
+    text-align: center;
+    border-left: 1px #cccccc solid;
+}
+
+:host ::ng-deep div.datatable-body-cell-label {
+    text-align: center;
+}
+
+:host ::ng-deep div.datatable-body-cell-label  span{
+    display:inline-block;
+    width: 100%;
+    text-align: right;
+}
